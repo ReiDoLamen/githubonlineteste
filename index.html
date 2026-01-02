@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerar JSON</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f5f5f5;
+      padding:20px;
+    }
+
+    .container{
+      background:white;
+      padding:20px;
+      max-width:400px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label{
+      font-weight:bold;
+    }
+
+    input{
+      width:100%;
+      margin:8px 0 15px 0;
+      padding:8px;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:5px;
+      background:#4CAF50;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    pre{
+      background:#222;
+      color:#0f0;
+      padding:15px;
+      border-radius:8px;
+      margin-top:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Gerar JSON</h2>
+
+    <label>Nome:</label>
+    <input type="text" id="nome">
+
+    <label>Telefone:</label>
+    <input type="text" id="telefone">
+
+    <label>Nome da mãe:</label>
+    <input type="text" id="mae">
+
+    <button onclick="gerarJSON()">Gerar JSON</button>
+
+    <pre id="resultado"></pre>
+  </div>
+
+  <script>
+    function gerarJSON(){
+      const dados = {
+        nome: document.getElementById("nome").value,
+        telefone: document.getElementById("telefone").value,
+        nome_da_mae: document.getElementById("mae").value
+      };
+
+      document.getElementById("resultado").textContent =
+        JSON.stringify(dados, null, 2);
+    }
+  </script>
+
+</body>
+</html>
